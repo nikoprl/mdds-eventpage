@@ -597,6 +597,14 @@ video {
   border-width: 0;
 }
 
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
 .sticky {
   position: -webkit-sticky;
   position: sticky;
@@ -604,6 +612,10 @@ video {
 
 .top-0 {
   top: 0px;
+}
+
+.bottom-0 {
+  bottom: 0px;
 }
 
 .mx-auto {
@@ -678,8 +690,12 @@ video {
   min-height: 100vh;
 }
 
-.min-h-\[calc\(100vh-4rem\)\] {
-  min-height: calc(100vh - 4rem);
+.min-h-\[calc\(100vh-60px\)\] {
+  min-height: calc(100vh - 60px);
+}
+
+.min-h-\[350px\] {
+  min-height: 350px;
 }
 
 .w-6 {
@@ -690,12 +706,12 @@ video {
   width: 100%;
 }
 
-.w-3\/4 {
-  width: 75%;
+.w-4\/5 {
+  width: 80%;
 }
 
-.w-1\/4 {
-  width: 25%;
+.w-1\/5 {
+  width: 20%;
 }
 
 .flex-row {
@@ -742,8 +758,20 @@ video {
   border-width: 1px;
 }
 
+.border-0 {
+  border-width: 0px;
+}
+
 .border-b {
   border-bottom-width: 1px;
+}
+
+.border-t {
+  border-top-width: 1px;
+}
+
+.border-solid {
+  border-style: solid;
 }
 
 .border-gray-200 {
@@ -754,6 +782,11 @@ video {
 .border-gray-100 {
   --tw-border-opacity: 1;
   border-color: rgb(243 244 246 / var(--tw-border-opacity));
+}
+
+.border-richblack {
+  --tw-border-opacity: 1;
+  border-color: rgb(7 7 7 / var(--tw-border-opacity));
 }
 
 .bg-gray-200 {
@@ -776,14 +809,19 @@ video {
   background-color: rgb(29 78 216 / var(--tw-bg-opacity));
 }
 
+.bg-royalpurple {
+  --tw-bg-opacity: 1;
+  background-color: rgb(123 75 148 / var(--tw-bg-opacity));
+}
+
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
-.bg-royalpurple {
+.bg-emerald {
   --tw-bg-opacity: 1;
-  background-color: rgb(123 75 148 / var(--tw-bg-opacity));
+  background-color: rgb(68 207 108 / var(--tw-bg-opacity));
 }
 
 .bg-cover {
@@ -815,6 +853,21 @@ video {
 .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+}
+
+.py-1\.5 {
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
+}
+
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 
 .pr-4 {
@@ -849,20 +902,35 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.text-royalpurple {
+  --tw-text-opacity: 1;
+  color: rgb(123 75 148 / var(--tw-text-opacity));
+}
+
 .text-gray-700 {
   --tw-text-opacity: 1;
   color: rgb(55 65 81 / var(--tw-text-opacity));
 }
 
-.text-royalpurple {
+.text-richblack {
   --tw-text-opacity: 1;
-  color: rgb(123 75 148 / var(--tw-text-opacity));
+  color: rgb(7 7 7 / var(--tw-text-opacity));
 }
 
 .shadow {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+:root {
+  --richblack: #070707;
+  --royalpurple: #7b4b94;
+  --white: #ffffff;
+  --emerald: #44cf6c;
+  --middlepurple: #7d82b8;
+  --vjs-theme-custom--primary: var(--white);
+  --vjs-theme-custom--secondary: var(--emerald);
 }
 
 html {
@@ -880,6 +948,30 @@ div#__next {
 main {
   height: 100%;
 }
+
+/* vjs customizations */
+
+.vjs-custom-theme {
+  --vjs-theme-fantasy--primary: var(--vjs-theme-custom--primary);
+  --vjs-theme-fantasy--secondary: var(--vjs-theme-custom--secondary);
+}
+
+.vjs-custom-theme .vjs-icon-placeholder {
+  --tw-text-opacity: 1 !important;
+  color: rgb(255 255 255 / var(--tw-text-opacity)) !important;
+}
+
+.vjs-custom-theme .vjs-play-control .vjs-icon-placeholder {
+  --tw-text-opacity: 1 !important;
+  color: rgb(125 130 184 / var(--tw-text-opacity)) !important;
+}
+
+.vjs-custom-theme .vjs-volume-level {
+  --tw-bg-opacity: 1;
+  background-color: rgb(68 207 108 / var(--tw-bg-opacity));
+}
+
+/* ------------------ */
 
 .hover\:bg-gray-100:hover {
   --tw-bg-opacity: 1;
@@ -946,8 +1038,20 @@ main {
     display: none;
   }
 
+  .md\:min-h-\[calc\(100vh-72px\)\] {
+    min-height: calc(100vh - 72px);
+  }
+
   .md\:w-auto {
     width: auto;
+  }
+
+  .md\:w-3\/4 {
+    width: 75%;
+  }
+
+  .md\:w-1\/4 {
+    width: 25%;
   }
 
   .md\:flex-row {

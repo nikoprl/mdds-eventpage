@@ -2,15 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --richblack: #070707;
+  --royalpurple: #7b4b94;
+  --white: #ffffff;
+  --emerald: #44cf6c;
+  --middlepurple: #7d82b8;
+  --vjs-theme-custom--primary: var(--white);
+  --vjs-theme-custom--secondary: var(--emerald);
+}
+
 html {
-    @apply h-full;
-  }
-  body {
-    @apply h-full;
-  }
-  div#__next {
-    @apply h-full;
-  }
-  main {
-    @apply h-full;
-  }
+  @apply h-full;
+}
+body {
+  @apply h-full;
+}
+div#__next {
+  @apply h-full;
+}
+main {
+  @apply h-full;
+}
+
+/* vjs customizations */
+.vjs-custom-theme {
+  --vjs-theme-fantasy--primary: var(--vjs-theme-custom--primary);
+  --vjs-theme-fantasy--secondary: var(--vjs-theme-custom--secondary);
+}
+
+.vjs-custom-theme .vjs-icon-placeholder {
+  @apply text-white !important;
+}
+
+.vjs-custom-theme .vjs-play-control .vjs-icon-placeholder {
+  @apply text-middlepurple !important;
+}
+
+.vjs-custom-theme .vjs-volume-level {
+  @apply bg-emerald;
+}
+/* ------------------ */

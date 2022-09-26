@@ -4,9 +4,13 @@
     <title>Tapahtumasivu | Stream</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/src/image/icons/favicon-16x16.png" sizes="16x16">
-    <link rel="icon" type="image/png" href="/src/image/icons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/src/image/icons/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="/src/image/icons/favicon-32x32.png" sizes="32x32" />
+    <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
+    <link href="https://unpkg.com/video.js@7/dist/video-js.min.css" rel="stylesheet" />
+    <link href="https://unpkg.com/@videojs/themes@1/dist/fantasy/index.css" rel="stylesheet" />
     <link href="/dist/output.css" rel="stylesheet" />
+    <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
   </head>
   <body class="bg-gray-50 dark:bg-gray-50 flex flex-col min-h-screen">
     <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5">
@@ -78,19 +82,68 @@
       </div>
     </nav>
 
-    <div class="flex flex-row min-h-[calc(100vh-4rem)] w-full">
-      <div id="stream" class="bg-black w-3/4 "></div>
+    <div
+      class="flex flex-col md:flex-row min-h-[calc(100vh-60px)] md:min-h-[calc(100vh-72px)] w-full"
+    >
+      <div id="stream" class="bg-black w-full md:w-3/4 min-h-[350px]">
+        <video
+          id="my-video"
+          class="video-js vjs-theme-fantasy vjs-custom-theme w-full h-full"
+        >
+          <source src="/src/image/videooo2.mp4" type="video/mp4" />
+          <!-- <source
+            src="http://xxxxxxxxxxxx/jakelu/xxxxxxxxxxxx/playlist.m3u8"
+            type="application/x-mpegURL"
+          /> -->
+          <p class="vjs-no-js">
+            To view this video please enable JavaScript, and consider upgrading
+            to a web browser that
+            <a href="https://videojs.com/html5-video-support/" target="_blank"
+              >supports HTML5 video</a
+            >
+          </p>
+        </video>
+      </div>
 
-      <div id="chat" class="bg-gray-200 w-1/4 h-full"></div>
+      <div id="chat" class="relative bg-gray-200 md:w-1/4 h-full w-full">
+        <form
+          id="message-form"
+          class="absolute bottom-0 flex flex-row w-full border-t border-b border-solid border-richblack"
+          action="#"
+        >
+          <input
+            id="m"
+            class="bg-gray-200 w-4/5 py-1.5 px-3 border-0"
+            autocomplete="off"
+            placeholder="Enter message..."
+          />
+          <input
+            type="submit"
+            class="w-1/5 bg-emerald text-richblack border-0 border-solid"
+            value="Send"
+          />
+        </form>
+      </div>
     </div>
 
     <footer
-      class="p-4 bg-white shadow md:flex md:items-center md:justify-between md:p-6"
+      class="p-4 bg-white shadow hidden md:flex md:items-center md:justify-between md:p-6"
     >
       <span class="text-sm text-gray-500 sm:text-center"
         >© 2022 All Rights Reserved.
       </span>
-      <!-- <ul class="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0"></ul> -->
     </footer>
+    <script>
+      let videoplayer = document.querySelector(".video-js");
+
+      console.log(videoplayer);
+
+      videojs(videoplayer, {
+        controls: true,
+        autoplay: false,
+        pereload: "auto",
+        poster: "/src/image/uCM8Mtw.jpeg",
+      });
+    </script>
   </body>
 </html>
