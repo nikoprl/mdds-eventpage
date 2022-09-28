@@ -25,6 +25,34 @@ main {
   @apply h-full;
 }
 
+h1 {
+  @apply text-3xl md:text-5xl lg:text-6xl mb-4 font-extrabold text-richblack;
+}
+
+h2 {
+  @apply text-4xl font-bold dark:text-white;
+}
+
+h3 {
+  @apply text-3xl font-bold dark:text-white;
+}
+
+h4 {
+  @apply text-2xl font-bold dark:text-white;
+}
+
+.nav-link {
+  @apply block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0;
+}
+
+.nav-link-active {
+  @apply block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0;
+}
+
+.info-inner {
+  @apply shadow-md rounded-lg flex flex-col text-black justify-center items-center h-full mx-10 my-8 bg-white border-r-8 border-l-8 border-middlepurple rounded-t-xl;
+}
+
 /* vjs customizations */
 .vjs-custom-theme {
   --vjs-theme-fantasy--primary: var(--vjs-theme-custom--primary);
