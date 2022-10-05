@@ -125,12 +125,43 @@
       </div>
     </div>
 
+    <div
+      class="bg-footer-texture drop-shadow-footer-shadow bg-no-repeat bg-bottom bg-cover w-full flex justify-end items-end min-h-[645px] -mb-1"
+    ></div>
     <footer
-      class="p-4 bg-white shadow hidden md:flex md:items-center md:justify-between md:p-6"
+      class="p-4 min-h-[245px] bg-middlepurple sticky z-10 shadow md:flex md:items-center md:justify-between md:p-6"
     >
-      <span class="text-sm text-gray-500 sm:text-center"
+      <span id="copyright" class="text-sm text-white sm:text-center"
         >© 2022 All Rights Reserved.
       </span>
+      <div id="socials" class="flex justify-center items-center">
+        <div class="w-full h-auto justify-between">
+          <button class="h-10 w-10 cursor-pointer border-none bg-[url(/image/icons/twitter-social-icons-circle-white.png)] bg-no-repeat bg-[length:100%]">
+            <button
+              style="
+                height: 40px;
+                width: 40px;
+                background: url(./image/icons/twitter-social-icons-circle-white.png)
+                  no-repeat;
+                background-size: 100%;
+                cursor: pointer;
+                border: none;
+              "
+            ></button>
+            <button
+              style="
+                height: 40px;
+                width: 40px;
+                background: url(/image/icons/twitter-social-icons-circle-white.png)
+                  no-repeat;
+                background-size: 100%;
+                cursor: pointer;
+                border: none;
+              "
+            ></button>
+          </button>
+        </div>
+      </div>
     </footer>
     <script>
       let videoplayer = document.querySelector(".video-js");
