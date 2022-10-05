@@ -1,5 +1,5 @@
 {
-  "name": "projekti",
+  "name": "mdds-projekti",
   "version": "1.0.0",
   "description": "projekti",
   "main": "index.js",
@@ -14,5 +14,14 @@
     "express": "^4.18.1",
     "nodemon": "^2.0.19",
     "tailwindcss": "^3.1.8"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikoprl/mdds-eventpage.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nikoprl/mdds-eventpage/issues"
+  },
+  "homepage": "https://github.com/nikoprl/mdds-eventpage#readme"
 }
