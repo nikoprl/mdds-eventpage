@@ -50,7 +50,7 @@ h4 {
 }
 
 .info-inner {
-  @apply shadow-md rounded-lg flex flex-col text-black justify-center items-center h-full mx-10 my-8 bg-white border-r-8 border-l-8 border-middlepurple rounded-t-xl;
+  @apply shadow-md rounded-lg flex flex-col text-black justify-center items-center h-full mx-10 my-8 bg-white border-r-8 border-l-8 border-emerald rounded-t-xl;
 }
 
 /* vjs customizations */

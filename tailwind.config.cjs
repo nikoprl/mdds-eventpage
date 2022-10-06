@@ -11,7 +11,7 @@ module.exports = {
         "middlepurple": "#7D82B8",
       },
       backgroundImage: {
-        'footer-texture': "url(/src/image/layered-waves-bg.svg)"
+        'footer-texture': "url(/image/layered-waves-bg.svg)"
       },
       dropShadow: {
         'footer-shadow': "0px -12px 23px rgba(0, 0, 0, 0.4)"

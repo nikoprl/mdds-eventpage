@@ -7,13 +7,13 @@
     <link
       rel="icon"
       type="image/png"
-      href="/src/image/icons/favicon-16x16.png"
+      href="/image/icons/favicon-16x16.png"
       sizes="16x16"
     />
     <link
       rel="icon"
       type="image/png"
-      href="/src/image/icons/favicon-32x32.png"
+      href="/image/icons/favicon-32x32.png"
       sizes="32x32"
     />
     <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
@@ -25,7 +25,7 @@
       href="https://unpkg.com/@videojs/themes@1/dist/fantasy/index.css"
       rel="stylesheet"
     />
-    <link href="/dist/output.css" rel="stylesheet" />
+    <link href="/styles/output.css" rel="stylesheet" />
     <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
   </head>
   <body class="bg-gray-50 dark:bg-gray-50 flex flex-col min-h-screen">
@@ -33,7 +33,7 @@
       <div
         class="container flex flex-wrap justify-between items-center mx-auto"
       >
-        <a href="/src/index.html" class="flex items-center">
+        <a href="./index.html" class="flex items-center">
           <span class="self-center text-xl font-semibold whitespace-nowrap"
             >Tapahtumasivu</span
           >
@@ -65,16 +65,16 @@
             class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white"
           >
             <li>
-              <a href="/src/index.html" class="nav-link">Etusivu</a>
+              <a href="/index.html" class="nav-link">Etusivu</a>
             </li>
             <li>
-              <a href="/src/schedule.html" class="nav-link">Ohjelma</a>
+              <a href="/schedule.html" class="nav-link">Ohjelma</a>
             </li>
             <li>
-              <a href="/src/stream.html" class="nav-link-active" aria-current="page">Stream</a>
+              <a href="/stream.html" class="nav-link-active" aria-current="page">Stream</a>
             </li>
             <li>
-              <a href="/src/contact.html" class="nav-link">Yhteystiedot</a>
+              <a href="/contact.html" class="nav-link">Yhteystiedot</a>
             </li>
           </ul>
         </div>
@@ -89,7 +89,7 @@
           id="my-video"
           class="video-js vjs-theme-fantasy vjs-custom-theme w-full h-full"
         >
-          <source src="/src/image/videooo2.mp4" type="video/mp4" />
+          <source src="/image/videooo2.mp4" type="video/mp4" />
           <!-- <source
             src="http://xxxxxxxxxxxx/jakelu/xxxxxxxxxxxx/playlist.m3u8"
             type="application/x-mpegURL"
@@ -105,23 +105,32 @@
       </div>
 
       <div id="chat" class="relative bg-gray-200 md:w-1/4 h-full w-full">
-        <form
-          id="message-form"
-          class="absolute bottom-0 flex flex-row w-full border-t border-b border-solid border-richblack"
-          action="#"
-        >
-          <input
-            id="m"
-            class="bg-gray-200 w-4/5 py-1.5 px-3 border-0"
-            autocomplete="off"
-            placeholder="Enter message..."
-          />
-          <input
-            type="submit"
-            class="w-1/5 bg-emerald text-richblack border-0 border-solid"
-            value="Send"
-          />
-        </form>
+        <div id="main-container" class="w-full h-full flex flex-col my-auto mx-auto pb-0 px-0 items-center bg-middlepurple">
+          <div id="selectStuffContainer" class="w-full text-sm border-b solid border-richblack">
+            <label for="rooms">Choose a room:</label>
+            <select name="rooms" id="rooms" class="m-2.5" onchange="joinRoom(this)">
+              <option disabled hidden value selected>Select</option>
+              <option value="1">Room 1</option>
+              <option value="2">Room 2</option>
+              <option value="3">Room 3</option>
+            </select>
+            <label for="username">Enter username:</label>
+            <input
+              type="text"
+              id="username"
+              placeholder="Username..."
+              required="true"
+            />
+          </div>
+      
+          <ul id="messages" class="w-full h-full list-none m-0 p-0 max-h-[calc(100vh-50px)!important] overflow-auto bg-white"></ul>
+          
+          <form id="message-form" class="absolute bottom-0 flex flex-row w-full border-t solid border-richblack" action="#">
+            <input id="m" class="w-4/5 py-1.5 px-3 border-0" autocomplete="off" placeholder="Enter message..." />
+            <input type="submit" class="w-1/5 bg-emerald text-richblack border-0 border-solid" value="Send" />
+          </form>
+        
+        </div>
       </div>
     </div>
 
@@ -172,8 +181,10 @@
         controls: true,
         autoplay: false,
         pereload: "auto",
-        poster: "/src/image/uCM8Mtw.jpeg",
+        poster: "/image/uCM8Mtw.jpeg",
       });
     </script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/chat.js"></script>
   </body>
 </html>
