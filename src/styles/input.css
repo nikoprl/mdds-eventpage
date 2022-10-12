@@ -12,21 +12,18 @@
   --vjs-theme-custom--secondary: var(--emerald);
 }
 
-html {
+ html {
   @apply h-full;
 }
 body {
-  @apply h-full;
-}
-div#__next {
-  @apply h-full;
+  @apply h-full bg-gray-300;
 }
 main {
   @apply h-full;
-}
+} 
 
 h1 {
-  @apply text-3xl md:text-5xl lg:text-6xl mb-4 font-extrabold text-richblack;
+  @apply text-3xl md:text-5xl lg:text-6xl mb-4 font-extrabold text-richblack text-center;
 }
 
 h2 {
@@ -50,7 +47,33 @@ h4 {
 }
 
 .info-inner {
-  @apply shadow-md rounded-lg flex flex-col text-black justify-center items-center h-full mx-10 my-8 bg-white border-r-8 border-l-8 border-emerald rounded-t-xl;
+  @apply shadow-md rounded-lg flex flex-row text-black justify-center items-center h-full mx-10 my-8 bg-white border-emerald rounded-t-xl;
+  border-radius: 11px;
+  background: #e0e0e0;
+  box-shadow: inset 7px 7px 14px #676767, inset -7px -7px 14px #ffffff;
+}
+.info-inside {
+  border-radius: 11px;
+  background: #e0e0e0;
+  box-shadow: inset 7px 7px 14px #676767, inset -7px -7px 14px #ffffff;
+}
+
+#uknow {
+  box-shadow: 10px 10px 18px #999999, -10px -10px 18px #f3f3f3;
+}
+
+#whatif {
+    box-shadow: 10px 10px 18px #999999, -10px 20px 18px #f3f3f3;
+}
+
+.btn {
+  @apply font-bold py-2 px-4 rounded border border-white;
+}
+.btn-blue {
+  @apply bg-middlepurple text-white;
+}
+.btn-blue:hover {
+  @apply bg-royalpurple cursor-pointer;
 }
 
 /* vjs customizations */
@@ -71,3 +94,10 @@ h4 {
   @apply bg-emerald;
 }
 /* ------------------ */
+
+
+/* twitter embed */
+#twitter-widget-0 {
+  @apply h-[500px] md:h-[500px!important] md:max-h-[500px!important] md:min-h-[500px!important] max-w-full w-full rounded-lg;
+}
+/* ------------ */

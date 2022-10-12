@@ -1,21 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="fi">
   <head>
     <title>Tapahtumasivu | Etusivu</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/image/icons/favicon-16x16.png" sizes="16x16">
-    <link rel="icon" type="image/png" href="/image/icons/favicon-32x32.png" sizes="32x32">
-    <link href="./styles/output.css" rel="stylesheet" />
+    <meta name="description" content="Tapahtumasivun etusivu">
+    <link
+      rel="icon"
+      type="image/png"
+      href="/image/icons/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/image/icons/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
+    <link
+      href="https://unpkg.com/video.js@7/dist/video-js.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/@videojs/themes@1/dist/fantasy/index.css"
+      rel="stylesheet"
+    />
+    <link href="/styles/output.css" rel="stylesheet" />
+    <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
+    <script src="modules/scrolltop.js"></script>
   </head>
-  <body class="bg-gray-200">
-    <nav class="bg-white sticky top-0 border-b border-gray-200 px-2 sm:px-4 py-2.5">
+  <body>
+    <!-- NAV -->
+    <nav
+      class="bg-white fixed w-full top-0 border-b border-gray-200 px-2 sm:px-4 py-2.5"
+    >
       <div
         class="container flex flex-wrap justify-between items-center mx-auto"
       >
         <a href="/index.html" class="flex items-center">
           <span class="self-center text-xl font-semibold whitespace-nowrap"
-            >Tapahtumasivu</span
+            >Mahdollisuuksien Maisemia</span
           >
         </a>
         <button
@@ -44,106 +69,395 @@
           <ul
             class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white"
           >
-            <li>
-              <a
-                href="/index.html"
-                class="nav-link-active"
-                aria-current="page"
+            <li class="group">
+              <a href="/index.html" class="nav-link-active" aria-current="page"
                 >Etusivu</a
               >
+              <div
+                class="relative -bottom-1 w-0 transition-all h-1 bg-emerald group-hover:w-full"
+              ></div>
             </li>
-            <li>
+            <li class="group">
               <a href="/schedule.html" class="nav-link">Ohjelma</a>
+              <div
+                class="relative -bottom-1 w-0 transition-all h-1 bg-emerald group-hover:w-full"
+              ></div>
             </li>
-            <li>
+            <li class="group">
               <a href="/stream.html" class="nav-link">Stream</a>
+              <div
+                class="relative -bottom-1 w-0 transition-all h-1 bg-emerald group-hover:w-full"
+              ></div>
             </li>
-            <li>
+            <li class="group">
               <a href="/contact.html" class="nav-link">Yhteystiedot</a>
+              <div
+                class="relative -bottom-1 w-0 transition-all h-1 bg-emerald group-hover:w-full"
+              ></div>
             </li>
           </ul>
         </div>
       </div>
     </nav>
+    <!-- NAV END-->
 
+    <!-- TOP BANNER -->
     <div
       id="banner"
       class="w-full flex items-center justify-center bg-cover bg-center"
-      style="height: 40rem; background-image: url('./image/uCM8Mtw.jpeg')"
+      style="
+        height: 40rem;
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+          ),
+          url('./image/bannerimg.webp');
+      "
     >
-    </div>
-
-    <div id="info" class="w-full mb-8 h-[500px]">
-      <div
-        class="rounded-lg flex flex-row text-white justify-center items-center h-full mx-10 my-8 bg-royalpurple"
-      >
-        <p class="mx-20">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+      <div id="banner-text">
+        <h1
+          class="text-white"
+          style="text-shadow: 4px 0 26px #000, 0 0 5px #000"
+        >
+          Mahdollisuuksien Maisemia
+        </h1>
+        <span id="counterholder" class="text-white"
+          ><p id="countertext">Tapahtuman alkuun:</p>
+          <p id="countdown"></p
+        ></span>
       </div>
     </div>
+    <!-- TOP BANNER END -->
 
-    <div class="w-full min-h-[500px]">
-      <div class="h-[500px]"></div>
-    </div>
-
+    <!-- CONTENT -->
     <div
-      class="bg-footer-texture drop-shadow-footer-shadow bg-no-repeat bg-bottom bg-cover w-full flex justify-end items-end min-h-[645px] -mb-1"
-    ></div>
-
-    <footer
-      class="p-4 min-h-[245px] bg-middlepurple sticky z-10 shadow md:flex md:items-center md:justify-between md:p-6"
+      id="maini-container"
+      class="flex flex-wrap flex-row justify-center w-full px-0 md:px-10 xl:px-60 lg:text-xl"
     >
-      <span id="copyright" class="text-sm text-white sm:text-center"
-        >© 2022 All Rights Reserved.
-      </span>
-      <div id="socials" class="flex justify-center items-center">
-        <div class="w-full h-auto m-1">
-          <button
-            style="
-              height: 40px;
-              width: 40px;
-              background: url(./image/icons/twitter-social-icons-circle-white.png)
-                no-repeat;
-              background-size: 100%;
-              cursor: pointer;
-              border: none;
-            "
-          ></button>
+      <div id="info" class="basis-full w-full h-full">
+        <div
+          class="info-inside shadow-md rounded-lg min-h-[500px] flex flex-col text-black justify-center items-center h-full mx-10 my-10 bg-white"
+        >
+          <h1
+            class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"
+          >
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r to-emerald from-middlepurple"
+              >Mikä tapahtuma?</span
+            >
+          </h1>
+          <p class="mx-20">
+            Mahdollisuuksien Maisemia on Metropolian vuosittain järjestämä
+            tapahtuma jossa pohditaan esimerkiksi miten luovuuden
+            mahdollisuuksia huomioiva näkökulma työelämässä eri aloilla ja
+            ammateissa otetaan käyttöön tai vaikkapa miten luovuuden huomiointi
+            edistää kestävää, hyvää työelämää ja tulevaisuutta?
+          </p>
         </div>
-        <div class="w-full h-auto m-1">
-          <button
-            style="
-              height: 40px;
-              width: 40px;
-              background: url(./image/icons/twitter-social-icons-circle-white.png)
-                no-repeat;
-              background-size: 100%;
-              cursor: pointer;
-              border: none;
-            "
-          ></button>
+      </div>
+
+      <div id="info" class="basis-full 2xl:basis-[50%] h-full">
+        <div
+          class="info-inside shadow-md rounded-lg min-h-[500px] flex flex-col text-black justify-center items-center h-full mx-10 my-10 bg-white"
+        >
+          <h1
+            class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"
+          >
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r to-emerald from-middlepurple"
+              >Kenelle?</span
+            >
+          </h1>
+          <p class="mx-20">
+            Tapahtuma on tarkoitettu eri alojen ammateissa toimiville
+            ammattilaisille, asiantuntijoille, yrittäjille ja opiskelijoille.
+            Luovuus tuo mahdollisuuksia kaikilla aloilla!
+          </p>
         </div>
-        <div class="w-full h-auto m-1">
-          <button
+      </div>
+
+      <div id="info" class="basis-full 2xl:basis-1/2 h-full">
+        <div
+          class=" info-inside shadow-md rounded-lg min-h-[500px] flex flex-col text-black justify-center items-center h-full mx-10 my-10 bg-white"
+        >
+          <h1
+            class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"
+          >
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r to-emerald from-middlepurple"
+              >Missä ja milloin?</span
+            >
+          </h1>
+          <p class="mx-20">
+            Metropolia Ammattikorkeakoulun Myllypuron kampuksella (Helsinki)
+            <br />
+            <br />
+            <strong>keskiviikkona 5.10.2022 klo 8.00-15.00</strong>
+            <br />
+            <br />
+            Tapahtuma on maksuton, mutta edellyttää sitovaa
+            ennakkoilmoittautumista.
+          </p>
+        </div>
+      </div>
+
+      <div
+        id="uknow"
+        class="flex md:flex-row-reverse flex-col basis-full w-full h-full min-h-[500px] bg-emerald lg:rounded-t-xl"
+      >
+        <div id="imaage" class="w-full md:w-1/2">
+          <div
+            id="banner"
+            class="w-full flex items-center justify-center bg-cover bg-center lg:rounded-tr-xl h-full min-h-[250px]"
             style="
-              height: 40px;
-              width: 40px;
-              background: url(./image/icons/twitter-social-icons-circle-white.png)
-                no-repeat;
-              background-size: 100%;
-              cursor: pointer;
-              border: none;
+              background-image: linear-gradient(
+                  rgba(0, 0, 0, 0.2),
+                  rgba(0, 0, 0, 0.2)
+                ),
+                url('./image/sagdsdh.png');
             "
-          ></button>
+          >
+            <div id="banner-text">
+              <h1
+                class="text-white"
+                style="text-shadow: 4px 0 26px #000, 0 0 5px #000"
+              ></h1>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-full md:w-1/2 p-11 text-richblack align-middle">
+          <h1
+            class="text-3xl font-extrabold md:text-5xl lg:text-6xl text-richblack"
+          >
+            Tiesitkö että...
+          </h1>
+          <p class="lg:text-lg">
+            … Yhteys omaan luovuuteen ja ilmaisuun on ihmisen perustarve.
+            <br />
+            <br />
+            … Kaikilla ihmisillä on mielen vapautta ja luovaa toimintaa
+            tarvitseva puoli.
+            <br />
+            <br />
+            … Luovuus on käyttövoimaa uusien ratkaisujen ja näkökulmien
+            syntymiselle.
+            <br />
+            <br />
+            … Yhteys omaan luovuuteen on hyvinvoinnin edellytys.
+            <br />
+            <br />
+            … Luova ajattelu ja mielikuvitus lisäävät resilienssiä, jota
+            tarvitsemme epävarmuudessa ja haasteissa.
+            <br />
+            <br />
+            … Jokainen ihminen on ainutlaatuinen ja siksi myös reitit ja tarpeet
+            oman luovuuden äärelle ovat erilaisia.<br />
+            Reittejä voidaan ravita arkisella luovuudella esimerkiksi
+            työpaikoilla.
+            <br />
+            <br />
+            … Luovuuden lisäämistä omaan arkeen voi tehdä hyvinkin pienin teoin.
+          </p>
+        </div>
+      </div>
+
+      <div
+        id="whatif"
+        class="flex md:flex-row flex-col basis-full w-full h-full min-h-[500px] bg-royalpurple lg:rounded-b-xl"
+      >
+        <div id="imaage" class="w-full md:w-1/2">
+          <div
+            id="banner"
+            class="w-full flex items-center justify-center bg-cover bg-center lg:rounded-bl-xl h-full min-h-[250px]"
+            style="
+              background-image: linear-gradient(
+                  rgba(0, 0, 0, 0.2),
+                  rgba(0, 0, 0, 0.2)
+                ),
+                url('./image/6645724.jpg');
+            "
+          >
+            <div id="banner-text">
+              <h1
+                class="text-white"
+                style="text-shadow: 4px 0 26px #000, 0 0 5px #000"
+              ></h1>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-full md:w-1/2 text-white align-middle p-11">
+          <h1
+            class="text-3xl font-extrabold md:text-5xl lg:text-6xl text-white"
+          >
+            Mitä jos...
+          </h1>
+          <p class="lg:text-xl">
+            … luovuuden mahdollisuuksia otetaan rohkeammin osaksi eri alojen
+            käytäntöjä ja työotetta?
+            <br />
+            <br />
+            … työn tekemisen arkeen tuodaan enemmän tilaa luovalle toiminnalle,
+            ajattelulle ja mielikuvitukselle?
+            <br />
+            <br />
+          </p>
+
+          <strong>Syntyy uusia ulottuvuuksia</strong>
+          <ul class="list-disc">
+            <li>
+              työhyvinvoinnin vahvistamiseen ja terveyden edistämiseen,
+              asiakaskohtaamisiin
+            </li>
+            <li>parempien ratkaisujen synnyttämiseen</li>
+            <li>palveluiden ja tuotteiden tarjoamiseen</li>
+            <li>oppivan organisaation työkulttuurin tukemiseen sekä</li>
+            <li>johtamisen näkökulmiin.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="info" class="basis-full w-full h-full">
+        <div
+          class="endtext min-h-[500px] flex flex-col text-black justify-center items-center h-full mx-10 my-10"
+        >
+          <h1 class="text-center">Tervetuloa kuulemaan ja keskustelemaan lisää yhdessä!</h1>
+          <br>
+          <br>
+          <a href="/stream.html" class="btn btn-blue">SIIRRY KATSOMAAN LÄHETYSTÄ ❱❱</a>
+        </div>
+      </div>
+
+      <div id="info" class="basis-full xl:basis-1/2 h-full w-full">
+        <div
+          class="shadow-md rounded-lg min-h-[500px] flex flex-col bg-black text-white justify-center items-center h-full mx-10 my-10"
+        >
+          <h1
+            class="mb-4 text-3xl font-extrabold text-gray-900 md:text-5xl lg:text-6xl"
+          >
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r to-emerald from-middlepurple"
+              >Ohjelma</span
+            >
+          </h1>
+          <p class="mx-20 text-center">
+            Tutustu tapahtuman ohjelmaan.
+            <br />
+            <br />
+            <a href="/schedule.html" class="btn bg-emerald whitespace-nowrap"> >>> </a>
+          </p>
+        </div>
+      </div>
+
+      <div id="info" class="basis-full xl:basis-1/2 h-full">
+        <div
+          class="shadow-md rounded-lg min-h-[422px] text-black justify-center items-center h-full mx-10 my-10 bg-black"
+        >
+        <a class="twitter-timeline" style="width: 100vw !important;" data-chrome="noborders" data-lang="fi" data-height="500" data-tweet-limit="2" data-dnt="true" data-theme="dark" href="https://twitter.com/m_maisemia">Tweets by m_maisemia</a>
+        </div>
+      </div>
+    
+    </div>
+    <!-- CONTENT END -->
+
+    <!-- BOTTOM EMPTY SPACE -->
+    <div class="w-full min-h-[340px]">
+      <div class="h-[340px]"></div>
+    </div>
+    <!-- BOTTOM EMPTY SPACE END -->
+
+    <!-- FOOTER -->
+    <footer>
+      <div
+        class="bg-footer-texture drop-shadow-footer-shadow bg-no-repeat bg-bottom bg-cover w-full flex justify-end items-end min-h-[400px] -mb-1"
+      ></div>
+      <div
+        class="p-4 min-h-[245px] bg-middlepurple sticky z-10 shadow md:flex md:items-center md:justify-between md:p-6"
+      >
+        <span id="copyright" class="text-sm text-white sm:text-center"
+          >© 2022 All Rights Reserved.
+        </span>
+        <div id="socials" class="flex justify-center items-center h-10">
+          <div class="w-full h-auto justify-between">
+            <a
+              href="mailto:kulttuurihyvinvointi@metropolia.fi"
+              class="p-5 m-2 h-10 w-10 cursor-pointer border-none bg-[url(/image/icons/icons8-email-64.png)] bg-no-repeat bg-[length:100%]"
+            >
+            </a>
+            <a
+              href="https://www.instagram.com/mahdollisuuksienmaisemia/"
+              class="p-5 m-2 h-10 w-10 cursor-pointer border-none bg-[url(/image/icons/icons8-instagram-48.png)] bg-no-repeat bg-[length:100%]"
+            >
+            </a>
+            <a
+            href="https://twitter.com/m_maisemia"
+            class="p-5 m-2 h-10 w-10 cursor-pointer border-none bg-[url(/image/icons/icons8-twitter-circled-48.png)] bg-no-repeat bg-[length:100%]"
+          >
+          </a>
+          </div>
         </div>
       </div>
     </footer>
+    <!-- FOOTER END -->
+    <script>
+      // Set the date we're counting down to
+      const countDownDate = new Date("Oct 15, 2022 16:30:00").getTime();
+
+      // Update the count down every 1 second
+      const x = setInterval(() => {
+        // Get today's date and time
+        const now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        const distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Output the result in an element
+        document.getElementById("countdown").innerHTML =
+          days +
+          " päivää " +
+          hours +
+          " tuntia " +
+          minutes +
+          " minuuttia " +
+          seconds +
+          " sekuntia ";
+
+        const toolong = -7;
+
+        // If the count down is over, write some text
+        if (distance < 0) {
+          if (hours <= toolong) {
+            clearInterval(x);
+            document.getElementById("countdown").innerHTML = `🔴 Päättynyt`;
+          } else {
+            clearInterval(x);
+            document.getElementById("countertext").style.visibility = "hidden";
+            document.getElementById("countdown").innerHTML =
+            `🟢 Tapahtuma on alkanut<br><br><a href="/stream.html" class="btn btn-blue whitespace-nowrap">SIIRRY KATSOMAAN LÄHETYSTÄ ❱❱</a>`;
+          }
+        }
+      }, 1000);
+    </script>
+    <script>
+      let isVisible = false;
+
+      document.querySelector("[data-collapse-toggle=navbar-default]").addEventListener("click", () => {
+        isVisible = !isVisible;
+
+        isVisible
+        ? document.getElementById("navbar-default").classList.remove("hidden") 
+        : document.getElementById("navbar-default").classList.add("hidden");
+      })
+    </script>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   </body>
 </html>

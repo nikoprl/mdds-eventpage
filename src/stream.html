@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="fi">
   <head>
     <title>Tapahtumasivu | Stream</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Tapahtumasivun stream" />
     <link
       rel="icon"
       type="image/png"
@@ -28,14 +29,14 @@
     <link href="/styles/output.css" rel="stylesheet" />
     <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
   </head>
-  <body class="bg-gray-50 dark:bg-gray-50 flex flex-col min-h-screen">
-    <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5">
+  <body class="flex flex-col min-h-screen" onload="joinRoom(1)">
+    <nav class="bg-white w-full border-gray-200 px-2 sm:px-4 py-2.5">
       <div
         class="container flex flex-wrap justify-between items-center mx-auto"
       >
         <a href="./index.html" class="flex items-center">
           <span class="self-center text-xl font-semibold whitespace-nowrap"
-            >Tapahtumasivu</span
+            >Mahdollisuuksien Maisemia</span
           >
         </a>
         <button
@@ -64,17 +65,31 @@
           <ul
             class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white"
           >
-            <li>
+            <li class="group">
               <a href="/index.html" class="nav-link">Etusivu</a>
+              <div
+                class="relative -bottom-1 w-0 transition-all h-1 bg-emerald group-hover:w-full"
+              ></div>
             </li>
-            <li>
+            <li class="group">
               <a href="/schedule.html" class="nav-link">Ohjelma</a>
+              <div
+                class="relative -bottom-1 w-0 transition-all h-1 bg-emerald group-hover:w-full"
+              ></div>
             </li>
-            <li>
-              <a href="/stream.html" class="nav-link-active" aria-current="page">Stream</a>
+            <li class="group">
+              <a href="/stream.html" class="nav-link-active" aria-current="page"
+                >Stream</a
+              >
+              <div
+                class="relative -bottom-1 w-0 transition-all h-1 bg-emerald group-hover:w-full"
+              ></div>
             </li>
-            <li>
+            <li class="group">
               <a href="/contact.html" class="nav-link">Yhteystiedot</a>
+              <div
+                class="relative -bottom-1 w-0 transition-all h-1 bg-emerald group-hover:w-full"
+              ></div>
             </li>
           </ul>
         </div>
@@ -89,11 +104,11 @@
           id="my-video"
           class="video-js vjs-theme-fantasy vjs-custom-theme w-full h-full"
         >
-          <source src="/image/videooo2.mp4" type="video/mp4" />
-          <!-- <source
-            src="http://xxxxxxxxxxxx/jakelu/xxxxxxxxxxxx/playlist.m3u8"
+          <source
+            id="striimi"
+            src="https://vekotin.norwayeast.cloudapp.azure.com/wowzastriim/playlist.m3u8"
             type="application/x-mpegURL"
-          /> -->
+          />
           <p class="vjs-no-js">
             To view this video please enable JavaScript, and consider upgrading
             to a web browser that
@@ -104,85 +119,170 @@
         </video>
       </div>
 
-      <div id="chat" class="relative bg-gray-200 md:w-1/4 h-full w-full">
-        <div id="main-container" class="w-full h-full flex flex-col my-auto mx-auto pb-0 px-0 items-center bg-middlepurple">
-          <div id="selectStuffContainer" class="w-full text-sm border-b solid border-richblack">
-            <label for="rooms">Choose a room:</label>
-            <select name="rooms" id="rooms" class="m-2.5" onchange="joinRoom(this)">
-              <option disabled hidden value selected>Select</option>
-              <option value="1">Room 1</option>
-              <option value="2">Room 2</option>
-              <option value="3">Room 3</option>
-            </select>
-            <label for="username">Enter username:</label>
-            <input
-              type="text"
-              id="username"
-              placeholder="Username..."
-              required="true"
-            />
+      <div
+        id="chat"
+        class="relative bg-gray-200 md:w-1/4 h-full w-full"
+      >
+        <div
+          id="main-container"
+          class="w-full h-full flex flex-col my-auto mx-auto pb-0 px-0 items-center bg-emerald"
+        >
+          <div
+            id="selectStuffContainer"
+            class="w-full text-sm border-b solid border-richblack p-2.5"
+          >
+            <p class="text-center text-white font-extrabold">CHAT</p>
+
+            <div>
+              <label for="rooms">Choose a room:</label>
+              <select name="rooms" id="rooms" onchange="joinRoom(this)">
+                <option disabled hidden value selected>Select</option>
+                <option value="1">Room 1</option>
+                <option value="2">Room 2</option>
+                <option value="3">Room 3</option>
+              </select>
+            </div>
+
+            <div class="">
+              <label for="username" class="text-white text-center"
+                >Enter username:</label
+              >
+              <input
+                type="text"
+                id="username"
+                placeholder="Username..."
+                required="true"
+              />
+            </div>
           </div>
-      
-          <ul id="messages" class="w-full h-full list-none m-0 p-0 max-h-[calc(100vh-50px)!important] overflow-auto bg-white"></ul>
-          
-          <form id="message-form" class="absolute bottom-0 flex flex-row w-full border-t solid border-richblack" action="#">
-            <input id="m" class="w-4/5 py-1.5 px-3 border-0" autocomplete="off" placeholder="Enter message..." />
-            <input type="submit" class="w-1/5 bg-emerald text-richblack border-0 border-solid" value="Send" />
+
+          <ul
+            id="messages"
+            class="w-full h-full list-none m-0 p-0 max-h-[calc(100vh-50px)!important] overflow-auto bg-white"
+          ></ul>
+
+          <form
+            id="message-form"
+            class="absolute bottom-0 flex flex-row w-full border-t solid border-richblack"
+            action="#"
+          >
+            <input
+              id="m"
+              class="w-4/5 py-1.5 px-3 border-0"
+              autocomplete="off"
+              placeholder="Enter message..."
+            />
+            <input
+              type="submit"
+              class="w-1/5 bg-emerald text-richblack border-0 border-solid"
+              value="Send"
+            />
           </form>
-        
         </div>
       </div>
     </div>
 
-    <div
-      class="bg-footer-texture drop-shadow-footer-shadow bg-no-repeat bg-bottom bg-cover w-full flex justify-end items-end min-h-[645px] -mb-1"
-    ></div>
-    <footer
-      class="p-4 min-h-[245px] bg-middlepurple sticky z-10 shadow md:flex md:items-center md:justify-between md:p-6"
-    >
-      <span id="copyright" class="text-sm text-white sm:text-center"
-        >© 2022 All Rights Reserved.
-      </span>
-      <div id="socials" class="flex justify-center items-center">
-        <div class="w-full h-auto justify-between">
-          <button class="h-10 w-10 cursor-pointer border-none bg-[url(/image/icons/twitter-social-icons-circle-white.png)] bg-no-repeat bg-[length:100%]">
-            <button
-              style="
-                height: 40px;
-                width: 40px;
-                background: url(./image/icons/twitter-social-icons-circle-white.png)
-                  no-repeat;
-                background-size: 100%;
-                cursor: pointer;
-                border: none;
-              "
-            ></button>
-            <button
-              style="
-                height: 40px;
-                width: 40px;
-                background: url(/image/icons/twitter-social-icons-circle-white.png)
-                  no-repeat;
-                background-size: 100%;
-                cursor: pointer;
-                border: none;
-              "
-            ></button>
-          </button>
+   <!-- <footer>
+      <div
+        class="bg-footer-texture drop-shadow-footer-shadow bg-no-repeat bg-bottom bg-cover w-full flex justify-end items-end min-h-[400px] -mb-1"
+      ></div>
+      <div
+        class="p-4 min-h-[245px] bg-middlepurple sticky z-10 shadow md:flex md:items-center md:justify-between md:p-6"
+      >
+        <span id="copyright" class="text-sm text-white sm:text-center"
+          >© 2022 All Rights Reserved.
+        </span>
+        <div id="socials" class="flex justify-center items-center h-10">
+          <div class="w-full h-auto justify-between">
+            <a
+              href="mailto:kulttuurihyvinvointi@metropolia.fi"
+              class="p-5 m-2 h-10 w-10 cursor-pointer border-none bg-[url(/image/icons/icons8-email-64.png)] bg-no-repeat bg-[length:100%]"
+            >
+            </a>
+            <a
+              href="https://www.instagram.com/mahdollisuuksienmaisemia/"
+              class="p-5 m-2 h-10 w-10 cursor-pointer border-none bg-[url(/image/icons/icons8-instagram-48.png)] bg-no-repeat bg-[length:100%]"
+            >
+            </a>
+            <a
+              href="https://twitter.com/m_maisemia"
+              class="p-5 m-2 h-10 w-10 cursor-pointer border-none bg-[url(/image/icons/icons8-twitter-circled-48.png)] bg-no-repeat bg-[length:100%]"
+            >
+            </a>
+          </div>
         </div>
       </div>
-    </footer>
-    <script>
+    </footer> -->
+
+    <script defer async>
       let videoplayer = document.querySelector(".video-js");
 
-      console.log(videoplayer);
+      const pleijer = videojs(
+        videoplayer,
+        {
+          controls: true,
+          autoplay: false,
+          preload: "auto",
+          poster: "/image/uCM8Mtw.jpeg",
+        },
+        () => {
+          pleijer.one("error", () => {
+            console.log("No stream available");
+            
+            const errordisp = document.querySelector(".vjs-error-display");
+            errordisp.innerHTML = "";
+            errordisp.innerHTML += `
+            <div id="jotaa2" class="
+                              absolute 
+                              top-0 
+                              z-50 
+                              w-full 
+                              bg-[#1e242c] 
+                              h-[50px]
+                              text-center
+                              text-sm 
+                              sm:text-lg
+                              md:text-2xl 
+                              flex
+                              justify-between 
+                              items-center 
+                              p-3">
+              <p>🔴 OFFLINE</p> 
+              <button id="vodbttn">Watch VOD 📼 </button> 
+              <button id="reloadbttn">RELOAD ⟲</button>
+            </div>`;
 
-      videojs(videoplayer, {
-        controls: true,
-        autoplay: false,
-        pereload: "auto",
-        poster: "/image/uCM8Mtw.jpeg",
-      });
+           
+            const vodbttn = document.getElementById("vodbttn");
+            vodbttn.addEventListener("click", () => {
+              event.preventDefault();
+              pleijer.pause();
+              pleijer.src({
+                type: "video/mp4",
+                src: "/videos/2022-10-11_22-40-14.mp4",
+              });
+              pleijer.load();
+              pleijer.play();
+            });
+
+            const reloadbttn = document.getElementById("reloadbttn");
+            reloadbttn.addEventListener("click", () => {
+              location.reload();
+            });
+          });
+        }
+      );
+    </script>
+    <script>
+      let isVisible = false;
+
+      document.querySelector("[data-collapse-toggle=navbar-default]").addEventListener("click", () => {
+        isVisible = !isVisible;
+
+        isVisible
+        ? document.getElementById("navbar-default").classList.remove("hidden") 
+        : document.getElementById("navbar-default").classList.add("hidden");
+      })
     </script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/chat.js"></script>
