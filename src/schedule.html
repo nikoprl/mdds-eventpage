@@ -22,13 +22,14 @@
     <script src="components/events.js" type="text/javascript"></script>
   </head>
   <body>
+    <!-- NAV -->
     <nav
       class="bg-white fixed w-full top-0 border-b border-gray-200 px-2 sm:px-4 py-2.5 z-50"
     >
       <div
         class="container flex flex-wrap justify-between items-center mx-auto"
       >
-        <a href="/index.html" class="flex items-center">
+        <a href="/" class="flex items-center">
           <span class="self-center text-xl font-semibold whitespace-nowrap"
             >Mahdollisuuksien Maisemia</span
           >
@@ -61,7 +62,7 @@
             class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white"
           >
             <li class="group">
-              <a href="/index.html" class="nav-link">Etusivu</a>
+              <a href="/" class="nav-link">Etusivu</a>
               <div
                 class="relative -bottom-1 w-0 transition-all h-1 bg-emerald group-hover:w-full"
               ></div>
@@ -93,7 +94,9 @@
         </div>
       </div>
     </nav>
+    <!-- NAV END -->
 
+    <!-- TOP BANNER -->
     <div
       id="banner"
       class="w-full flex items-center justify-center bg-cover bg-center"
@@ -115,7 +118,9 @@
         </h1>
       </div>
     </div>
+    <!-- TOP BANNER END -->
 
+    <!-- CONTENT -->
     <div
       id="content-container"
       class="flex flex-col flex-wrap lg:flex-nowrap md:flex-row-reverse xl:px-40"
@@ -151,6 +156,7 @@
         <ul class="timeline info-inside mx-10 my-8"></ul>
       </div>
     </div>
+    <!-- CONTENT END -->
 
     <!-- BOTTOM EMPTY SPACE -->
     <div class="w-full min-h-[340px]">
@@ -196,8 +202,8 @@
       renderEvents();
     </script>
     <script>
+      // Hide/show mobile navigation
       let isVisible = false;
-
       document.querySelector("[data-collapse-toggle=navbar-default]").addEventListener("click", () => {
         isVisible = !isVisible;
 
