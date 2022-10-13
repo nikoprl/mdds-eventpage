@@ -16,7 +16,7 @@ html {
   @apply h-full;
 }
 body {
-  @apply h-full bg-gray-300;
+  @apply h-full bg-gray-300 min-w-[355px];
 }
 main {
   @apply h-full;
