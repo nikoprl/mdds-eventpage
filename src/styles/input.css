@@ -152,6 +152,10 @@ h4 {
 .vjs-custom-theme .vjs-volume-level {
   @apply bg-emerald;
 }
+
+.vjs-error-display::before {
+  @apply content-['CURRENTLY_OFFLINE'] !important;
+}
 /* ------------------ */
 
 /* twitter embed */

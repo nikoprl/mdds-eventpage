@@ -1652,6 +1652,11 @@ h4 {
   background-color: rgb(68 207 108 / var(--tw-bg-opacity));
 }
 
+.vjs-error-display::before {
+  --tw-content: 'CURRENTLY OFFLINE' !important;
+  content: var(--tw-content) !important;
+}
+
 /* ------------------ */
 
 /* twitter embed */
