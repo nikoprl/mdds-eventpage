@@ -1199,10 +1199,6 @@ video {
   font-weight: 800;
 }
 
-.uppercase {
-  text-transform: uppercase;
-}
-
 .leading-tight {
   line-height: 1.25;
 }
@@ -1345,37 +1341,16 @@ h2 {
   font-weight: 700;
 }
 
-@media (prefers-color-scheme: dark) {
-  h2 {
-    --tw-text-opacity: 1;
-    color: rgb(255 255 255 / var(--tw-text-opacity));
-  }
-}
-
 h3 {
   font-size: 1.875rem;
   line-height: 2.25rem;
   font-weight: 700;
 }
 
-@media (prefers-color-scheme: dark) {
-  h3 {
-    --tw-text-opacity: 1;
-    color: rgb(255 255 255 / var(--tw-text-opacity));
-  }
-}
-
 h4 {
   font-size: 1.5rem;
   line-height: 2rem;
   font-weight: 700;
-}
-
-@media (prefers-color-scheme: dark) {
-  h4 {
-    --tw-text-opacity: 1;
-    color: rgb(255 255 255 / var(--tw-text-opacity));
-  }
 }
 
 .nav-link {
@@ -1468,6 +1443,147 @@ h4 {
 
 #whatif {
   box-shadow: 10px 10px 18px #999999, -10px 20px 18px #f3f3f3;
+}
+
+#timeline-content p {
+  font-weight: 300;
+  color: #323232bd;
+}
+
+#timeline-content a {
+  float: right;
+  margin: 1.9rem 0 0 0;
+  display: block;
+  --tw-bg-opacity: 1;
+  background-color: rgb(37 39 39 / var(--tw-bg-opacity));
+  padding: 0.3rem 1rem;
+  font-size: 0.6em;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  --tw-text-opacity: 1;
+  color: rgb(108 109 109 / var(--tw-text-opacity));
+  text-decoration: none;
+}
+
+#timeline-content a:hover {
+  border-width: 0.35em;
+  --tw-border-opacity: 1;
+  border-color: rgb(7 7 7 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 79 252 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+#timeline-content strong {
+  font-weight: 600;
+}
+
+#timeline-content h1 {
+  font-family: sans-serif;
+  font-size: 2.4em;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+#timeline-content {
+  text-align: center;
+}
+
+#timeline-content .timeline {
+  position: relative;
+  max-width: 100%;
+  list-style-type: none;
+  border-radius: 0.75rem;
+  border-left-width: 4px;
+  --tw-border-opacity: 1;
+  border-color: rgb(123 75 148 / var(--tw-border-opacity));
+  padding: 3rem;
+  text-align: left;
+  font-family: sans-serif;
+  font-size: 1.03em;
+  font-weight: 100;
+  line-height: 1.4em;
+  letter-spacing: 0.5px;
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+#timeline-content .timeline h1 {
+  font-family: sans-serif;
+  font-size: 1.4em;
+  font-weight: 100;
+  letter-spacing: 1.5px;
+}
+
+#timeline-content .timeline h2, 
+.timeline h3 {
+  font-family: sans-serif;
+  font-size: 1.4em;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  --tw-text-opacity: 1;
+  color: rgb(7 7 7 / var(--tw-text-opacity));
+}
+
+#timeline-content .timeline .event {
+  position: relative;
+  margin-bottom: 3rem;
+  border-bottom-width: 1px;
+  border-style: dashed;
+  border-color: #ffffff1a;
+  padding-bottom: 1.5rem;
+}
+
+#timeline-content .timeline .event:last-of-type {
+  margin-bottom: 0px;
+  border-style: none;
+  padding-bottom: 0px;
+}
+
+#timeline-content .timeline .event:before, 
+.timeline .event:after {
+  position: absolute;
+  top: 0px;
+  display: block;
+}
+
+#timeline-content .timeline .event:before {
+  top: -20px;
+  min-width: 120px;
+  font-family: sans-serif;
+  font-size: 0.9em;
+  font-weight: 100;
+  --tw-text-opacity: 1;
+  color: rgb(7 7 7 / var(--tw-text-opacity));
+  --tw-content: attr(data-date);
+  content: var(--tw-content);
+}
+
+@media (min-width: 1280px) {
+  #timeline-content .timeline .event:before {
+    left: -217.5px;
+    top: 0px;
+    text-align: right;
+  }
+}
+
+#timeline-content .timeline .event:after {
+  left: -57.85px;
+  top: 0.25rem;
+  height: 0.75rem;
+  width: 0.75rem;
+  border-radius: 50%;
+  --tw-bg-opacity: 1;
+  background-color: rgb(49 53 52 / var(--tw-bg-opacity));
+  --tw-shadow: 0 0 0 4px #7d82b8;
+  --tw-shadow-colored: 0 0 0 4px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  --tw-content: "";
+  content: var(--tw-content);
 }
 
 .btn {
@@ -1719,11 +1835,6 @@ h4 {
     border-bottom-left-radius: 0.75rem;
   }
 
-  .lg\:px-40 {
-    padding-left: 10rem;
-    padding-right: 10rem;
-  }
-
   .lg\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
@@ -1769,3 +1880,5 @@ h4 {
     flex-basis: 50%;
   }
 }
+
+

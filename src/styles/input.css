@@ -12,7 +12,7 @@
   --vjs-theme-custom--secondary: var(--emerald);
 }
 
- html {
+html {
   @apply h-full;
 }
 body {
@@ -20,22 +20,22 @@ body {
 }
 main {
   @apply h-full;
-} 
+}
 
 h1 {
   @apply text-3xl md:text-5xl lg:text-6xl mb-4 font-extrabold text-richblack text-center;
 }
 
 h2 {
-  @apply text-4xl font-bold dark:text-white;
+  @apply text-4xl font-bold;
 }
 
 h3 {
-  @apply text-3xl font-bold dark:text-white;
+  @apply text-3xl font-bold;
 }
 
 h4 {
-  @apply text-2xl font-bold dark:text-white;
+  @apply text-2xl font-bold;
 }
 
 .nav-link {
@@ -63,7 +63,66 @@ h4 {
 }
 
 #whatif {
-    box-shadow: 10px 10px 18px #999999, -10px 20px 18px #f3f3f3;
+  box-shadow: 10px 10px 18px #999999, -10px 20px 18px #f3f3f3;
+}
+
+#timeline-content p {
+  @apply font-light text-[#323232bd];
+}
+
+#timeline-content a {
+  @apply text-[#6c6d6d] uppercase block tracking-[0.3em] text-[0.6em] font-normal bg-[#252727] p-[0.3rem_1rem] m-[1.9rem_0_0_0] float-right;
+  text-decoration: none;
+}
+
+#timeline-content a:hover {
+  @apply text-white bg-[#004ffc] border-[0.35em] border-richblack;
+}
+
+#timeline-content strong {
+  @apply font-semibold;
+}
+
+#timeline-content h1 {
+  @apply font-[sans-serif] tracking-[1.5px] text-white font-normal text-[2.4em];
+}
+
+#timeline-content {
+  @apply text-center;
+}
+
+#timeline-content .timeline {
+  @apply border-l-4 border-royalpurple rounded-xl text-black font-[sans-serif] tracking-[0.5px] relative leading-[1.4em] text-[1.03em] p-12 list-none text-left font-thin max-w-full;
+}
+
+#timeline-content .timeline h1 {
+  @apply font-[sans-serif] tracking-[1.5px] font-thin text-[1.4em];
+}
+
+#timeline-content .timeline h2,
+.timeline h3 {
+  @apply font-[sans-serif] tracking-[1.5px] font-normal text-[1.4em] text-richblack;
+}
+
+#timeline-content .timeline .event {
+  @apply border-b border-dashed border-[#ffffff1a] pb-6 mb-12 relative;
+}
+
+#timeline-content .timeline .event:last-of-type {
+  @apply pb-0 mb-0 border-none;
+}
+
+#timeline-content .timeline .event:before,
+.timeline .event:after {
+  @apply absolute block top-0;
+}
+
+#timeline-content .timeline .event:before {
+  @apply xl:left-[-217.5px] text-richblack content-[attr(data-date)] xl:text-right top-[-20px] xl:top-0 font-thin text-[0.9em] min-w-[120px] font-[sans-serif];
+}
+
+#timeline-content .timeline .event:after {
+  @apply shadow-[0_0_0_4px_#7d82b8] left-[-57.85px] bg-[#313534] rounded-[50%] h-3 w-3 content-[""] top-1;
 }
 
 .btn {
@@ -95,9 +154,10 @@ h4 {
 }
 /* ------------------ */
 
-
 /* twitter embed */
 #twitter-widget-0 {
   @apply h-[500px] md:h-[500px!important] md:max-h-[500px!important] md:min-h-[500px!important] max-w-full w-full rounded-lg;
 }
 /* ------------ */
+
+

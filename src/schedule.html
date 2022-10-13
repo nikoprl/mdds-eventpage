@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="fi">
   <head>
     <title>Tapahtumasivu | Ohjelma</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Tapahtumasivun ohjelma" />
     <link
       rel="icon"
       type="image/png"
@@ -17,21 +18,24 @@
       sizes="32x32"
     />
     <link href="./styles/output.css" rel="stylesheet" />
+    <script defer async src="components/scrolltop.js"></script>
+    <script src="components/events.js" type="text/javascript"></script>
   </head>
-  <body class="bg-gray-200">
+  <body>
     <nav
-      class="bg-white sticky top-0 border-b border-gray-200 px-2 sm:px-4 py-2.5"
+      class="bg-white fixed w-full top-0 border-b border-gray-200 px-2 sm:px-4 py-2.5 z-50"
     >
       <div
         class="container flex flex-wrap justify-between items-center mx-auto"
       >
         <a href="/index.html" class="flex items-center">
           <span class="self-center text-xl font-semibold whitespace-nowrap"
-            >Tapahtumasivu</span
+            >Mahdollisuuksien Maisemia</span
           >
         </a>
         <button
           data-collapse-toggle="navbar-default"
+          aria-label="navbar-toggle"
           type="button"
           class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
           aria-controls="navbar-default"
@@ -56,17 +60,34 @@
           <ul
             class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white"
           >
-            <li>
+            <li class="group">
               <a href="/index.html" class="nav-link">Etusivu</a>
+              <div
+                class="relative -bottom-1 w-0 transition-all h-1 bg-emerald group-hover:w-full"
+              ></div>
             </li>
-            <li>
-              <a href="/schedule.html" class="nav-link-active" aria-current="page">Ohjelma</a>
+            <li class="group">
+              <a
+                href="/schedule.html"
+                class="nav-link-active"
+                aria-current="page"
+                >Ohjelma</a
+              >
+              <div
+                class="relative -bottom-1 w-0 transition-all h-1 bg-emerald group-hover:w-full"
+              ></div>
             </li>
-            <li>
+            <li class="group">
               <a href="/stream.html" class="nav-link">Stream</a>
+              <div
+                class="relative -bottom-1 w-0 transition-all h-1 bg-emerald group-hover:w-full"
+              ></div>
             </li>
-            <li>
+            <li class="group">
               <a href="/contact.html" class="nav-link">Yhteystiedot</a>
+              <div
+                class="relative -bottom-1 w-0 transition-all h-1 bg-emerald group-hover:w-full"
+              ></div>
             </li>
           </ul>
         </div>
@@ -75,15 +96,34 @@
 
     <div
       id="banner"
-      class="w-full bg-cover bg-center"
-      style="height: 40rem; background-image: url('./image/uCM8Mtw.jpeg')"
-    ></div>
+      class="w-full flex items-center justify-center bg-cover bg-center"
+      style="
+        height: 40rem;
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+          ),
+          url('./image/bannerimg.webp');
+      "
+    >
+      <div id="banner-text">
+        <h1
+          class="text-white"
+          style="text-shadow: 4px 0 26px #000, 0 0 5px #000"
+        >
+          Ilmoittautuminen ja ohjelma
+        </h1>
+      </div>
+    </div>
 
-    <div id="content-container" class="flex flex-col md:flex-row-reverse">
-      <div id="other-container" class="w-6/6 xl:w-2/6">
+    <div
+      id="content-container"
+      class="flex flex-col flex-wrap lg:flex-nowrap md:flex-row-reverse xl:px-40"
+    >
+      <div id="register-container" class="w-6/6 xl:w-1/2">
         <div id="other" class="w-full mb-8 h-[500px]">
           <div
-            class="shadow-md rounded-lg flex flex-col text-white justify-center items-center h-full mx-10 my-8 bg-black"
+            class="info-inside shadow-md rounded-lg flex flex-col text-black justify-center items-center h-full mx-10 my-8"
           >
             <h2 class="px-20 self-start">
               <span
@@ -97,133 +137,73 @@
               mukaan ilmoittautumisjärjestyksessä.
             </p>
             <br />
-            <a href="" class="text-emerald">ILMOITTAUDU >></a>
+            <a
+              href="https://www.lyyti.fi/reg/tapahtumakavija"
+              class="text-emerald bg-richblack btn"
+              >ILMOITTAUDU >></a
+            >
           </div>
         </div>
       </div>
 
-      <div id="info-container" class="w-6/6 xl:w-4/6">
-        <div id="info" class="w-full mb-8 h-[400px]">
-          <div class="info-inner">
-            <span class="text-black mx-20 self-start border-b-2"
-              >1.1.1999 | 6:00-8:00 - Tapahtuu jotain</span
-            >
-
-            <p class="mx-20">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-          </div>
-        </div>
-
-        <div id="info" class="w-full mb-8 h-[400px]">
-          <div class="info-inner">
-            <span class="text-black mx-20 self-start border-b-2"
-              >1.1.1999 | 6:00-8:00 - Tapahtuu jotain</span
-            >
-            <p class="mx-20">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-          </div>
-        </div>
-
-        <div id="info" class="w-full mb-8 h-[400px]">
-          <div class="info-inner">
-            <span class="text-black mx-20 self-start border-b-2"
-              >1.1.1999 | 6:00-8:00 - Tapahtuu jotain</span
-            >
-            <p class="mx-20">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-          </div>
-        </div>
-
-        <div id="info" class="w-full mb-8 h-[400px]">
-          <div class="info-inner">
-            <span class="text-black mx-20 self-start border-b-2"
-              >1.1.1999 | 6:00-8:00 - Tapahtuu jotain</span
-            >
-            <p class="mx-20">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-          </div>
-        </div>
+      <div id="timeline-content">
+        <h1 class="hidden">Ohjelma</h1>
+        <ul class="timeline info-inside mx-10 my-8"></ul>
       </div>
     </div>
 
-    <div
-      class="bg-footer-texture drop-shadow-footer-shadow bg-no-repeat bg-bottom bg-cover w-full flex justify-end items-end min-h-[645px] -mb-1"
-    ></div>
-    <footer
-      class="p-4 min-h-[245px] bg-middlepurple sticky z-10 shadow md:flex md:items-center md:justify-between md:p-6"
-    >
-      <span id="copyright" class="text-sm text-white sm:text-center"
-        >© 2022 All Rights Reserved.
-      </span>
-      <div id="socials" class="flex justify-center items-center">
-        <div class="w-full h-auto m-1">
-          <button
-            style="
-              height: 40px;
-              width: 40px;
-              background: url(./image/icons/twitter-social-icons-circle-white.png)
-                no-repeat;
-              background-size: 100%;
-              cursor: pointer;
-              border: none;
-            "
-          ></button>
-        </div>
-        <div class="w-full h-auto m-1">
-          <button
-            style="
-              height: 40px;
-              width: 40px;
-              background: url(./image/icons/twitter-social-icons-circle-white.png)
-                no-repeat;
-              background-size: 100%;
-              cursor: pointer;
-              border: none;
-            "
-          ></button>
-        </div>
-        <div class="w-full h-auto m-1">
-          <button
-            style="
-              height: 40px;
-              width: 40px;
-              background: url(./image/icons/twitter-social-icons-circle-white.png)
-                no-repeat;
-              background-size: 100%;
-              cursor: pointer;
-              border: none;
-            "
-          ></button>
+    <!-- BOTTOM EMPTY SPACE -->
+    <div class="w-full min-h-[340px]">
+      <div class="h-[340px]"></div>
+    </div>
+    <!-- BOTTOM EMPTY SPACE END -->
+
+    <!-- FOOTER -->
+    <footer>
+      <div
+        class="bg-footer-texture drop-shadow-footer-shadow bg-no-repeat bg-bottom bg-cover w-full flex justify-end items-end min-h-[400px] -mb-1"
+      ></div>
+      <div
+        class="p-4 min-h-[245px] bg-middlepurple sticky z-10 shadow md:flex md:items-center md:justify-between md:p-6"
+      >
+        <span id="copyright" class="text-sm text-white sm:text-center"
+          >© 2022 All Rights Reserved.
+        </span>
+        <div id="socials" class="flex justify-center items-center h-10">
+          <div class="w-full h-auto justify-between">
+            <a
+              href="mailto:kulttuurihyvinvointi@metropolia.fi"
+              class="p-5 m-2 h-10 w-10 cursor-pointer border-none bg-[url(/image/icons/icons8-email-64.png)] bg-no-repeat bg-[length:100%]"
+            >
+            </a>
+            <a
+              href="https://www.instagram.com/mahdollisuuksienmaisemia/"
+              class="p-5 m-2 h-10 w-10 cursor-pointer border-none bg-[url(/image/icons/icons8-instagram-48.png)] bg-no-repeat bg-[length:100%]"
+            >
+            </a>
+            <a
+              href="https://twitter.com/m_maisemia"
+              class="p-5 m-2 h-10 w-10 cursor-pointer border-none bg-[url(/image/icons/icons8-twitter-circled-48.png)] bg-no-repeat bg-[length:100%]"
+            >
+            </a>
+          </div>
         </div>
       </div>
     </footer>
+    <!-- FOOTER END -->
+    <script async>
+      renderEvents();
+    </script>
+    <script>
+      let isVisible = false;
+
+      document.querySelector("[data-collapse-toggle=navbar-default]").addEventListener("click", () => {
+        isVisible = !isVisible;
+
+        isVisible
+        ? document.getElementById("navbar-default").classList.remove("hidden") 
+        : document.getElementById("navbar-default").classList.add("hidden");
+      })
+    </script>
   </body>
 </html>
