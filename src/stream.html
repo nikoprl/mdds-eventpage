@@ -30,6 +30,7 @@
     <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
   </head>
   <body class="flex flex-col min-h-screen">
+    <!-- NAV -->
     <nav class="bg-white w-full border-gray-200 px-2 sm:px-4 py-2.5">
       <div
         class="container flex flex-wrap justify-between items-center mx-auto"
@@ -95,7 +96,9 @@
         </div>
       </div>
     </nav>
+    <!-- NAV END -->
 
+    <!-- CONTENT -->
     <div
       class="flex flex-col md:flex-row min-h-[calc(100vh-60px)] md:min-h-[calc(100vh-72px)] w-full"
     >
@@ -188,7 +191,7 @@
         </div>
       </div>
     </div>
-
+    <!-- CONTENT END -->
     <script defer>
       let videoplayer = document.querySelector(".video-js");
 
@@ -250,7 +253,7 @@
       );
     </script>
     <script>
-      // Hide/show hamburger menu
+      // Hide/show mobile navigation
       let isVisible = false;
       document.querySelector("[data-collapse-toggle=navbar-default]").addEventListener("click", () => {
         isVisible = !isVisible;
