@@ -128,10 +128,10 @@ h4 {
 .btn {
   @apply font-bold py-2 px-4 rounded border border-white;
 }
-.btn-blue {
+.btn-purple {
   @apply bg-middlepurple text-white;
 }
-.btn-blue:hover {
+.btn-purple:hover {
   @apply bg-royalpurple cursor-pointer;
 }
 

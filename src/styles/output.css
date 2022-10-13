@@ -675,6 +675,16 @@ video {
   margin-bottom: 2.5rem;
 }
 
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.mx-9 {
+  margin-left: 2.25rem;
+  margin-right: 2.25rem;
+}
+
 .my-auto {
   margin-top: auto;
   margin-bottom: auto;
@@ -892,10 +902,6 @@ video {
 
 .justify-between {
   justify-content: space-between;
-}
-
-.self-start {
-  align-self: flex-start;
 }
 
 .self-center {
@@ -1143,11 +1149,6 @@ video {
 .px-0 {
   padding-left: 0px;
   padding-right: 0px;
-}
-
-.px-20 {
-  padding-left: 5rem;
-  padding-right: 5rem;
 }
 
 .px-4 {
@@ -1598,14 +1599,14 @@ h4 {
   font-weight: 700;
 }
 
-.btn-blue {
+.btn-purple {
   --tw-bg-opacity: 1;
   background-color: rgb(125 130 184 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.btn-blue:hover {
+.btn-purple:hover {
   cursor: pointer;
   --tw-bg-opacity: 1;
   background-color: rgb(123 75 148 / var(--tw-bg-opacity));
